@@ -18,7 +18,7 @@ export class TrainingScheduleService {
     return this.httpObj.post<AddTrainingSchedule>(this.paymentUrl,data)
   }
   gettrainingScheduleByTrainer(trainer){
-    return this.httpObj.get<AddTrainingSchedule[]>(this.paymentUrl+"/"+trainer)
+    return this.httpObj.get<AddTrainingSchedule>(this.paymentUrl+"/"+trainer.id)
   }
   addPaymentProcess(data){
     return this.httpObj.put<AddTrainingSchedule>(this.paymentUrl+"/processed/"+data.id,data)

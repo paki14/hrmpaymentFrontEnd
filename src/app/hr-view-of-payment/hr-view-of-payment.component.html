@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-lg-6 col-sm-12">
+    <div class="col-md-10 col-sm-12">
       <div class="panel panel-default">
         <div class="panel-heading">Payment History</div>
         <!-- /.panel-heading -->
@@ -27,9 +27,9 @@
                   <td>{{training.totalCoveredhours}}</td>
                   <td>{{training.status}}</td>
                   <td>{{training.amounToPaid}}</td>
-                  <td>{{training.trainer.id}}</td>
+                  <td>{{training.trainer.name}}</td>
                   <td *ngIf="training.status=='INITIATED'">
-                  <button type="button" class="btn btn-primary" (click)="paymentProcess(training)">Add</button>
+                  <button type="button" class="btn btn-primary" (click)="paymentProcess(training)">Forward...</button>
 
                   </td>
                 </tr>

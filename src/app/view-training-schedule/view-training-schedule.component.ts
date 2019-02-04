@@ -26,6 +26,9 @@ export class ViewTrainingScheduleComponent implements OnInit {
     // alert(this.trainingScheduleObj.id)
   }
   paymentCompleted(){
+    this.trainingScheduleObj.id
+    this.trainingScheduleObj.trainer=1
+    this.trainingScheduleObj.date = new Date(this.trainingScheduleObj.date);
     return this.trainingScheduleService.addPaymentComplete(this.trainingScheduleObj).subscribe(data=>{
       console.log(data);
       this.gettrainingSchedule()

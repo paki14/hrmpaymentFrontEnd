@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-lg-6 col-sm-12">
+    <div class="col-md-10 col-sm-12">
       <div class="panel panel-default">
         <div class="panel-heading">Payment History</div>
         <!-- /.panel-heading -->
@@ -27,9 +27,9 @@
                   <td>{{training.totalCoveredhours}}</td>
                   <td>{{training.status}}</td>
                   <td>{{training.amounToPaid}}</td>
-                  <td>{{training.trainer.id}}</td>
+                  <td>{{training.trainer.name}}</td>
                   <td *ngIf="training.status=='PROCESSED'">
-                  <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#confirm" (click)="paymentProcess(training)">Add</button> -->
+                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editdep" (click)="getTrainingScheduleById(training)">Add Invoice</button>
 
                   </td>
                 </tr>
@@ -47,75 +47,35 @@
   </div>
 
 
-  <div class="modal fade" id="confirm-modal" role="dialog">
+  <div class="modal fade" id="editdep" role="dialog">
       <div class="modal-dialog">
           <!-- Modal content-->
           <div class="modal-content">
               <div class="modal-header">
                   <button type="button" class="close" data-dismiss="modal">&times;</button>
-                  <h4 class="modal-title">Payment Conformation</h4>
+                  <h4 class="modal-title">Add Payment</h4>
               </div>
-              <div class="card-body">
+              <div class="modal-body">
                   <div class="row">
-                    <div class="col-md-12">
-                      <div class="card card-primary">
-                        <!-- form start -->
-                        <form>
-                          <div class="card-body">
-                            <div class="row">
-                              <div class="col-md-6">
-                                <div class="form-group">
-                                  <label for="date">Date of Training</label>
-                                  <input type="date" placeholder="yyyy-mm-dd" class="form-control" id="date" name="date"
-                                    [(ngModel)]="trainingScheduleObj.date">
-                                </div>
+                          <div class="col-md-6">
+                                  <div class="form-group">
+                                      <label class="control-label col-sm-6">Invoice No:</label>
+                                    
+                                      <div class="col-sm-12">
+                                              
+                                          <input type="text" class="form-control" id="email" placeholder=""[(ngModel)]="paymentObj.invoiceNo"name="dep" >
+                                              
+                                      </div>
+                                  </div>
                               </div>
-                              <div class="col-md-6">
-                                <div class="form-group">
-                                  <label for="amount">Topic</label>
-                                  <input type="text" class="form-control" id="topic" name="Topic" [(ngModel)]="trainingScheduleObj.trainingTopic">
-                                </div>
-                              </div>
-                            </div>
-                            <div class="row">
-                              <div class="col-md-6">
-                                <div class="form-group">
-                                  <label for="status">Total Hours</label>
-                                  <input type="text" class="form-control" id="hours" name="Hours" [(ngModel)]="trainingScheduleObj.totalCoveredhours">
-  
-                                  <!-- <select class="form-co>ntrol" name="status" id="status">
-                                                  <option default hidden selected>--Payment Status--</option>
-                                                  <option>Fully Paid</option>
-                                                  <option>Partly Paid</option>
-                                                </select> -->
-                                </div>
-                              </div>
-                              <div class="col-md-6">
-                                <div class="form-group">
-                                  <label for="amount">Trainer</label>
-                                  <input type="text" class="form-control" id="trainer" name="Invoice" [(ngModel)]="trainingScheduleObj.trainer">
-                                </div>
-                              </div>
-                            </div>
-                            <div class="row">
-                              <div class="col-md-6">
-                                <div class="form-group">
-                                  <label for="amount">Amount</label>
-                                  <input type="text" class="form-control" id="amount" name="amount" [(ngModel)]="trainingScheduleObj.amounToPaid">
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          
-                        </form>
-                        <!-- form end -->
-                      </div>
-                    </div>
+                      
                   </div>
-                </div>
+  
+  
+              </div>
               <div class="modal-footer">
-                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#confirm-modal"
-                  (click)="paymentProcess()">Send</button>
+                  <button type="button" class="btn btn-default" data-dismiss="modal" (click)="addpaymentdetails()">Update</button>
+  
               </div>
           </div>
   
