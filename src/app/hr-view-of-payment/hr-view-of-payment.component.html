@@ -1,0 +1,128 @@
+<div class="row">
+    <div class="col-lg-6 col-sm-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">Payment History</div>
+        <!-- /.panel-heading -->
+        <div class="panel-body">
+          <div class="table-responsive">
+            <table class="table table-hover" st-pipe="callServer"
+              st-table="displayed">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Training Topic</th>
+                  <th>Attend Date</th>
+                  <th>Total Time</th>
+                  <th>Status</th>
+                  <th>Amount</th>
+                  <th>Trainer Name</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody ng-show="!isLoading">
+                <tr *ngFor="let training of trainingSchedule">
+                  <td>{{training.id}}</td>
+                  <td>{{training.trainingTopic}}</td>
+                  <td>{{training.date | date:"yyyy:MM:dd"}}</td>
+                  <td>{{training.totalCoveredhours}}</td>
+                  <td>{{training.status}}</td>
+                  <td>{{training.amounToPaid}}</td>
+                  <td>{{training.trainer.id}}</td>
+                  <td *ngIf="training.status=='INITIATED'">
+                  <button type="button" class="btn btn-primary" (click)="paymentProcess(training)">Add</button>
+
+                  </td>
+                </tr>
+              </tbody>
+              
+              
+            </table>
+          </div>
+          <!-- /.table-responsive -->
+        </div>
+        <!-- /.panel-body -->
+      </div>
+      <!-- /.panel -->
+    </div>
+  </div>
+
+
+  <div class="modal fade" id="confirm-modal" role="dialog">
+      <div class="modal-dialog">
+          <!-- Modal content-->
+          <div class="modal-content">
+              <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">Payment Conformation</h4>
+              </div>
+              <div class="card-body">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="card card-primary">
+                        <!-- form start -->
+                        <form>
+                          <div class="card-body">
+                            <div class="row">
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label for="date">Date of Training</label>
+                                  <input type="date" placeholder="yyyy-mm-dd" class="form-control" id="date" name="date"
+                                    [(ngModel)]="trainingScheduleObj.date">
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label for="amount">Topic</label>
+                                  <input type="text" class="form-control" id="topic" name="Topic" [(ngModel)]="trainingScheduleObj.trainingTopic">
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label for="status">Total Hours</label>
+                                  <input type="text" class="form-control" id="hours" name="Hours" [(ngModel)]="trainingScheduleObj.totalCoveredhours">
+  
+                                  <!-- <select class="form-co>ntrol" name="status" id="status">
+                                                  <option default hidden selected>--Payment Status--</option>
+                                                  <option>Fully Paid</option>
+                                                  <option>Partly Paid</option>
+                                                </select> -->
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label for="amount">Trainer</label>
+                                  <input type="text" class="form-control" id="trainer" name="Invoice" [(ngModel)]="trainingScheduleObj.trainer">
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label for="amount">Amount</label>
+                                  <input type="text" class="form-control" id="amount" name="amount" [(ngModel)]="trainingScheduleObj.amounToPaid">
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          
+                        </form>
+                        <!-- form end -->
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#confirm-modal"
+                  (click)="paymentProcess()">Send</button>
+              </div>
+          </div>
+  
+      </div>
+  </div>
+    
+    <!-- <app-view-payment-initiate></app-view-payment-initiate> -->
+    
+    
+    

@@ -1,3 +1,25 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<app-add-payment></app-add-payment>
-<router-outlet></router-outlet>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="tab" role="tabpanel">
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs" role="tablist">
+                    <li role="presentation" routerLinkActive="active"><a class="active" routerLink="addTraining"
+                            aria-controls="profile" role="tab" data-toggle="tab">Initiate Payment</a></li>
+                    <li role="presentation" routerLinkActive="active"><a class="active" routerLink="PaymentHistory"
+                            aria-controls="profile" role="tab" data-toggle="tab">View Payment</a></li>
+                    <li role="presentation" routerLinkActive="active"><a class="active" routerLink="addPayment"
+                            aria-controls="home" role="tab" data-toggle="tab">Payment</a></li>
+                    <li role="presentation" routerLinkActive="active"><a class="active" routerLink="viewPayment"
+                            aria-controls="profile" role="tab" data-toggle="tab">Payment History</a></li>
+                    <li role="presentation" routerLinkActive="active"><a class="active" routerLink="sendProcess"
+                            aria-controls="profile" role="tab" data-toggle="tab">Hr Process</a></li>
+                    <li role="presentation" routerLinkActive="active"><a class="active" routerLink="senddeposit"
+                            aria-controls="profile" role="tab" data-toggle="tab">Account view</a></li>
+                </ul>
+                <br>
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-lg-6 col-sm-12">
       <div class="panel panel-default">
-        <div class="panel-heading">Attendance</div>
+        <div class="panel-heading">Payment Details</div>
         <!-- /.panel-heading -->
         <div class="panel-body">
           <div class="table-responsive">
@@ -9,25 +9,25 @@
               st-table="displayed">
               <thead>
                 <tr>
-                  <th>Trainee</th>
-                  <th>Attend Type</th>
-                  <th>Attend Date</th>
-                  <th>Start Time</th>
-                  <th>End Time</th>
-                  <th>Duration</th>
-                  <th>Attend Status</th>
+                  <th>ID</th>
+                  <th>Training Schedule</th>
+                  <th>Training Date</th>
+                  <th>Amount</th>
+                  <th>Invoice Number</th>
+                  <th>Status</th>
+                  
                   
                 </tr>
               </thead>
               <tbody ng-show="!isLoading">
-                <tr *ngFor="let attend of attendantDetails">
-                  <td>{{attend.trainee.fullName}}</td>
-                  <td>{{attend.attendType.attendType}}</td>
-                  <td>{{attend.attendDate | date:"dd:MM:yyyy"}}</td>
-                  <td>{{attend.startTime}}</td>
-                  <td>{{attend.endTime}}</td>
-                  <td>{{attend.duration}}</td>
-                  <td>{{attend.attendantStatus.statusName}}</td>
+                <tr *ngFor="let pay of payment">
+                  <td>{{pay.id}}</td>
+                  <td>{{pay.trainingSchedule.id}}</td>
+                  <td>{{pay.dateOfPayment | date:"dd:MM:yyyy"}}</td>
+                  <td>{{pay.amount}}</td>
+                  <td>{{pay.invoiceNo}}</td>
+                  <td>{{pay.trainingSchedule.status}}</td>
+                     
                 </tr>
               </tbody>
               
