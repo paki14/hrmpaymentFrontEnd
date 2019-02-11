@@ -18,7 +18,10 @@ export class AddPaymentServiceService {
   addPaymentDetails(data){
     return this.httpObj.post<AddPayment>(this.paymentUrl,data)
   }
-  getPaymentDetailByTrainer(trainer){
-    return this.httpObj.get<AddPayment[]>(this.paymentUrl+"/"+trainer)
+  getPaymentDetailByTrainingScheduleId(data){
+    return this.httpObj.get<AddPayment>(this.paymentUrl+"/"+data)
+  }
+  editPayment(data){
+    return this.httpObj.put<AddPayment>(this.paymentUrl+"/"+data,data)
   }
 }

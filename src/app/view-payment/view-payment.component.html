@@ -22,7 +22,7 @@
               <tbody ng-show="!isLoading">
                 <tr *ngFor="let pay of payment">
                   <td>{{pay.id}}</td>
-                  <td>{{pay.trainingSchedule.id}}</td>
+                  <td>{{pay.trainingSchedule.trainingTopic}}</td>
                   <td>{{pay.dateOfPayment | date:"dd:MM:yyyy"}}</td>
                   <td>{{pay.amount}}</td>
                   <td>{{pay.invoiceNo}}</td>

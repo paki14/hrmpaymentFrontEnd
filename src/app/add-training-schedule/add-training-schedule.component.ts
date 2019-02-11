@@ -17,6 +17,7 @@ export class AddTrainingScheduleComponent implements OnInit {
   ngOnInit() {
   }
   addtrainingSchedule(){
+    this.trainingScheduleObj.trainer=1
     return this.trainingScheduleService.addtrainingSchedule(this.trainingScheduleObj).subscribe(data=>{
       console.log(data);
     })

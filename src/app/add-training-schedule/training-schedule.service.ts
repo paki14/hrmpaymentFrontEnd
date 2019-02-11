@@ -26,4 +26,7 @@ export class TrainingScheduleService {
   addPaymentComplete(data){
     return this.httpObj.put<AddTrainingSchedule>(this.paymentUrl+"/completed/"+data.id,data)
   }
+  addPaymentNotComplete(data){
+    return this.httpObj.put<AddTrainingSchedule>(this.paymentUrl+"/notcompleted/"+data.id,data)
+  }
 }

@@ -27,11 +27,21 @@ export class AccountentPaymentViewComponent implements OnInit {
     })
   }
   addpaymentdetails(){
-    
     this.paymentObj.amount=this.trainingScheduleByID.amounToPaid
     this.paymentObj.dateOfPayment=this.trainingScheduleByID.date
     this.paymentObj.trainingSchedule=this.trainingScheduleByID.id
     return this.paymentService.addPaymentDetails(this.paymentObj).subscribe(data=>{
+      console.log(data);
+      // alert("sadsfdb")
+      this.getTrainingSchedule()
+    })
+  }
+  editPayment(data){
+    this.paymentObj.id=this.trainingScheduleObj.id
+    this.paymentObj.amount=this.trainingScheduleByID.amounToPaid
+    this.paymentObj.dateOfPayment=this.trainingScheduleByID.date
+    this.paymentObj.trainingSchedule=this.trainingScheduleByID.id
+    return this.paymentService.editPayment(this.paymentObj.id).subscribe(data=>{
       console.log(data);
       // alert("sadsfdb")
       this.getTrainingSchedule()
