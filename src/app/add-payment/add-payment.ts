@@ -3,6 +3,6 @@ export class AddPayment {
     amount:number;
     dateOfPayment:Date
     invoiceNo:String
-    trainingSchedule:number
+    trainingSchedule:Number
     
 }
